@@ -1,4 +1,24 @@
 
+#' Title
+#'
+#' @param N.0 s
+#' @param N.1 s
+#' @param ratio s
+#' @param d s
+#' @param l s
+#' @param gamma.c s
+#' @param alpha0.t s
+#' @param nu0.t s
+#' @param HR s
+#' @param alpha1.t s
+#' @param nu1.t s
+#' @param s s
+#' @param m s
+#'
+#' @return ssss
+#' @export
+#'
+#' @examples sssss
 TrialPred.TwoArm <- function(
                                 N.0=NULL,       # Number of subjects plan to be enrolled in group 1
                                 N.1=NULL,       # Number of subjects plan to be enrolled in group 2

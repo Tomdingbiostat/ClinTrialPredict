@@ -1,4 +1,5 @@
 library(devtools)
+library(roxygen2)
 use_git()
 use_r("Integrand")
 
@@ -21,4 +22,6 @@ library(ClinTrialPredict)
 use_package('pracma')
 
 use_readme_rmd()
+
+export(TrialPred.TwoArm)
 

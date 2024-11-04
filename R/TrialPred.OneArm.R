@@ -12,9 +12,9 @@
 #' @param nu example
 #'
 #' @return example
-#' @export example
+#' @export
 #'
-#' @examples example
+#' @examples ex
 TrialPred.OneArm <- function(
     N=NULL        # Number of subjects enrolled
     ,d=NULL        # expected number of events observed at l

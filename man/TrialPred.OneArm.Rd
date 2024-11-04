@@ -39,5 +39,5 @@ example
 Title
 }
 \examples{
-example
+ex
 }
