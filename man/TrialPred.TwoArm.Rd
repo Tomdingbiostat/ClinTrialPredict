@@ -25,7 +25,7 @@ TrialPred.TwoArm(
 
 \item{N.1}{The number of subjects plan to be enrolled in experimental arm}
 
-\item{ratio}{The Randomization ratio between two arms: N.1 / N.0}
+\item{ratio}{The randomization ratio between two arms: N.1 / N.0}
 
 \item{d}{The expected number of events observed at time l}
 

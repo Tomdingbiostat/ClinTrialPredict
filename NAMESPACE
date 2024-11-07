@@ -3,6 +3,8 @@
 export(CensTimeTwoArm)
 export(NumEventsSubTwoArm)
 export(ObsTimeTwoArm)
+export(SimData)
+export(SimDataTwoArm)
 export(TrialPred.OneArm)
 export(TrialPred.TwoArm)
 export(integral.s1)
