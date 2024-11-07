@@ -14,6 +14,7 @@
 #' @param nu1.t scale parameter of a weibull survival distribution for control arm
 #' @param s  enrollment time
 #' @param m maximum follow-up time for a subject
+#' @param design2 a list containing parameters for two-arm design
 #'
 #' @return This function returns a list including all design parameters as the same with input parameters of this function. If parameter `d` is missing, this function will calculate l, based on other parameters. If parameter N.0 or N.1 is missing, this function will calculate N.0 or N.1, based on other parameters. If parameter l is missing, this function will calculate l based on other parameters. If parameter gamma.c is missing, this function will calculate gamma.c based on other parameters.
 #' @export
@@ -21,51 +22,61 @@
 #' @examples # calculate the expected number of events
 #' TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
 TrialPred.TwoArm <- function(
-                                N.0=NULL,
-                                N.1=NULL,
-                                ratio=NULL,
-                                d=NULL,
-                                l=NULL,
-                                gamma.c=NULL,
-                                alpha0.t=NULL,
-                                nu0.t=NULL,
-                                HR = NULL,
-                                alpha1.t=NULL,
-                                nu1.t=NULL,
-                                s=NULL,
-                                m=NULL
-
-
+                                 N.0=NULL
+                                ,N.1=NULL
+                                ,ratio=NULL
+                                ,d=NULL
+                                ,l=NULL
+                                ,gamma.c=NULL
+                                ,s=NULL
+                                ,m=NULL
+                                ,alpha0.t=NULL
+                                ,nu0.t=NULL
+                                ,HR = NULL
+                                ,alpha1.t=NULL
+                                ,nu1.t=NULL
+                                ,design2=NULL
 ){
+
+  if(!is.null(design2)){
+    for (name in names(design2)) { assign(name, design2[[name]]) }
+  }else{
+    design2 <- list(N.0=N.0,N.1=N.1,ratio=ratio,d=d,l=l,gamma.c=gamma.c,alpha0.t=alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,HR=HR,s=s,m=m)
+  }
 
   if(!is.null(HR)){
     alpha1.t <- alpha0.t
     nu1.t <- nu0.t * HR^(1/alpha0.t)
   }
 
-  if(!is.null(ratio) & is.null(N.1)){
+  if(!is.null(ratio) & !is.null(N.0) & is.null(N.1)){
     N.1 <- N.0 * ratio
-  }else if(!is.null(ratio) & is.null(N.0)){
+  }else if(!is.null(ratio) & !is.null(N.1) & is.null(N.0)){
     N.0 <- N.1 / ratio
   }
 
-  design <- list(N.0=N.0,N.1=N.1,ratio=ratio,d=d,l=l,gamma.c=gamma.c,alpha0.t=alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,HR=HR,s=s,m=m)
 
+  #print(design2)
   if( is.null(d) ){
-    return(NumEventsSubTwoArm(N.0=N.0,N.1=N.1,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m,l=l))
+    #return(NumEventsSubTwoArm(N.0=N.0,N.1=N.1,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m,l=l))
+    return(NumEventsSubTwoArm(design2=design2))
   }
 
   else if( is.null(N.0) & is.null(N.1) ){
-    return(NumEventsSubTwoArm(ratio=ratio,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m,l=l))
+    #return(NumEventsSubTwoArm(ratio=ratio,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m,l=l))
+    return(NumEventsSubTwoArm(design2=design2))
   }
 
   else if( is.null(l) ){
-    return(ObsTimeTwoArm(N.0=N.0,N.1=N.1,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m))
+    #return(ObsTimeTwoArm(N.0=N.0,N.1=N.1,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m))
+    return(ObsTimeTwoArm(design2=design2))
   }
 
   else if( is.null(gamma.c) ){
-    return(CensTimeTwoArm(N.0=N.0,N.1=N.1,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,s=s,m=m,l=l))
+    #return(CensTimeTwoArm(N.0=N.0,N.1=N.1,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,s=s,m=m,l=l))
+    return(CensTimeTwoArm(design2=design2))
   }
 }
 
-
+# TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+# TrialPred.TwoArm(ratio=1,d=23.87,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)

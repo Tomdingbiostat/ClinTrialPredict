@@ -1,17 +1,36 @@
 
-#### predict number of events for a single arm ####
+#' Title
+#'
+#' @param N
+#' @param s
+#' @param m
+#' @param l
+#' @param alpha
+#' @param nu
+#' @param gamma
+#' @param d
+#' @param design1
+#'
+#' @return
+#' @export
+#'
+#' @examples
+NumEventsSub <- function( N=NULL
+                         ,d=NULL
+                         ,l=NULL
+                         ,gamma=NULL
+                         ,s=NULL
+                         ,m=NULL
+                         ,alpha=NULL
+                         ,nu=NULL
+                         ,design1=NULL
+                         ){
 
-# N: number of subjects enrolled
-# s: enrollment period
-# m: maximum follow-up for a single subject
-# alpha: shape parameter of a weibull distribution for survival time
-# nu: scale parameter of a weibull distribution for survival time
-# gamma: rate of an exponential distribution for random censoring time
-# d: number of expected events observed
-
-
-NumEventsSub <- function(N,s,m,l,alpha,nu,gamma,d){
-
+  if(!is.null(design1)){
+    for (name in names(design1)) {
+      assign(name, design1[[name]])
+    }
+  }
 
   # Scenario 1
   #
@@ -43,23 +62,42 @@ NumEventsSub <- function(N,s,m,l,alpha,nu,gamma,d){
     stop('wrong input')
   }
 
+  if(is.null(N) & !is.null(d)){
+    N <- d / P.delta.0
+  }
+
+  if(is.null(d) & !is.null(N)){
+    d <- N * P.delta.0
+  }
+
 
   res <- list(
-               P.delta.0=P.delta.0
-              ,d=ifelse(missing(d),N * P.delta.0,d)
-              ,N=ifelse(missing(N),d / P.delta.0,N)
+               N=N
+              ,d=d
+              ,l=l
+              ,gamma=gamma
               ,s=s
               ,m=m
-              ,l=l
               ,alpha=alpha
               ,nu=nu
-              ,gamma=gamma
-              ,Narm = 1
+              ,P.delta.0=P.delta.0
               )
 
   return(res)
 
 }
+
+
+# (s1 <- NumEventsSub(N=100,s=5,m=3,l=2,  alpha=1,nu=5,gamma=1)) # l<s, l<m
+#
+# design1 <- list(N=100,s=5,m=3,l=2,  alpha=1,nu=5,gamma=1)
+# NumEventsSub(design1=design1)
+#
+#
+# (s2 <- NumEventsSub(N=100,s=5,m=3,l=4,  alpha=1,nu=5,gamma=1)) # l<s, l>m
+# (s3 <- NumEventsSub(N=100,s=5,m=7,l=6,  alpha=1,nu=5,gamma=1)) # l>s, l<=m
+# (s4 <- NumEventsSub(N=100,s=5,m=7,l=8,  alpha=1,nu=5,gamma=1)) # l>s, l>m, l < m + s
+# (s5 <- NumEventsSub(N=100,s=5,m=7,l=12, alpha=1,nu=5,gamma=1)) # l>s, l>m, l > m + s
 
 
 

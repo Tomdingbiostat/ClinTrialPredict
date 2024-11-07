@@ -4,7 +4,19 @@
 \alias{ObsTimeTwoArm}
 \title{Title}
 \usage{
-ObsTimeTwoArm(N.0, N.1, d, alpha0.t, nu0.t, alpha1.t, nu1.t, gamma.c, s, m)
+ObsTimeTwoArm(
+  N.0,
+  N.1,
+  d,
+  alpha0.t,
+  nu0.t,
+  alpha1.t,
+  nu1.t,
+  gamma.c,
+  s,
+  m,
+  design2
+)
 }
 \arguments{
 \item{m}{}

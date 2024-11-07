@@ -9,14 +9,15 @@ NumEventsSubTwoArm(
   N.1 = NULL,
   ratio = NULL,
   d = NULL,
-  alpha0.t,
-  nu0.t,
+  alpha0.t = NULL,
+  nu0.t = NULL,
   alpha1.t,
   nu1.t,
   gamma.c,
   s,
   m,
-  l
+  l,
+  design2 = NULL
 )
 }
 \arguments{

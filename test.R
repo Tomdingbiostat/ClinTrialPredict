@@ -2,20 +2,12 @@
 
 
 
-TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+NumEventsSubTwoArm(ratio=1,d=10,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
 
 
 # TrialPred.TwoArm(ratio=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6, d=23.87)
 # TrialPred.TwoArm(N.0=100,N.1=100,d=23.87,ratio=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4)
 # TrialPred.TwoArm(N.0=100,N.1=100,d=23.87,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4,l=6)
-
-
-
-(s1 <- NumEventsSub(N=100,s=5,m=3,l=2,  alpha=1,nu=5,gamma=1)) # l<s, l<m
-(s2 <- NumEventsSub(N=100,s=5,m=3,l=4,  alpha=1,nu=5,gamma=1)) # l<s, l>m
-(s3 <- NumEventsSub(N=100,s=5,m=7,l=6,  alpha=1,nu=5,gamma=1)) # l>s, l<=m
-(s4 <- NumEventsSub(N=100,s=5,m=7,l=8,  alpha=1,nu=5,gamma=1)) # l>s, l>m, l < m + s
-(s5 <- NumEventsSub(N=100,s=5,m=7,l=12, alpha=1,nu=5,gamma=1)) # l>s, l>m, l > m + s
 
 
 ObsTime(N=100,d=4.14, s=5,m=3,alpha=1,nu=5,gamma=1)

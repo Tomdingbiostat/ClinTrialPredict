@@ -28,7 +28,8 @@ CensTimeTwoArm <- function(    N.0,       # Number of subjects plan to be enroll
                                nu1.t,     # scale parameter of a weibull survival distribution for group 2
                                gamma.c,   # parameters of a weibull censoring distribution for both groups
                                s,         # enrollment period time
-                               m          # maximum follow-up time for a subject
+                               m,         # maximum follow-up time for a subject
+                               design2
 )
 {
 
@@ -57,6 +58,11 @@ CensTimeTwoArm <- function(    N.0,       # Number of subjects plan to be enroll
   # f2.1.0 <- function(a,t){
   #   1/s * dweibull(t,shape=alpha1.t,scale = nu1.t) * (1-pexp(t,rate=0.001))
   # }
+
+
+  if(!is.null(design2)){
+    for (name in names(design2)) { assign(name, design2[[name]]) }
+  }
 
   # Scenario 1: l<s, l<m
   if(l<=s & l<=m){

@@ -25,8 +25,11 @@ ObsTimeTwoArm <- function(     N.0,       # Number of subjects plan to be enroll
                                nu1.t,     # scale parameter of a weibull survival distribution for group 2
                                gamma.c,   # parameters of a weibull censoring distribution for both groups
                                s,         # enrollment period time
-                               m          # maximum follow-up time for a subject
+                               m,         # maximum follow-up time for a subject
+                               design2
                             ){
+
+      if(!is.null(design2)){ for (name in names(design2)) { assign(name, design2[[name]]) } }
 
       P0.delta.0.s <- NumEventsSub(N=N.0,s=s,m=m,l=s,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
       P1.delta.0.s <- NumEventsSub(N=N.1,s=s,m=m,l=s,alpha=alpha1.t,nu=nu0.t,gamma=gamma.c)$P.delta.0

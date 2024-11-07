@@ -11,13 +11,14 @@ TrialPred.TwoArm(
   d = NULL,
   l = NULL,
   gamma.c = NULL,
+  s = NULL,
+  m = NULL,
   alpha0.t = NULL,
   nu0.t = NULL,
   HR = NULL,
   alpha1.t = NULL,
   nu1.t = NULL,
-  s = NULL,
-  m = NULL
+  design2 = NULL
 )
 }
 \arguments{
@@ -33,6 +34,10 @@ TrialPred.TwoArm(
 
 \item{gamma.c}{parameter of the exponential distribution of censoring time}
 
+\item{s}{enrollment time}
+
+\item{m}{maximum follow-up time for a subject}
+
 \item{alpha0.t}{shape parameter of weibull survival distribution for control arm}
 
 \item{nu0.t}{scale parameter of weibull survival distribution for control arm}
@@ -43,9 +48,7 @@ TrialPred.TwoArm(
 
 \item{nu1.t}{scale parameter of a weibull survival distribution for control arm}
 
-\item{s}{enrollment time}
-
-\item{m}{maximum follow-up time for a subject}
+\item{design2}{a list containing parameters for two-arm design}
 }
 \value{
 This function returns a list including all design parameters as the same with input parameters of this function. If parameter \code{d} is missing, this function will calculate l, based on other parameters. If parameter N.0 or N.1 is missing, this function will calculate N.0 or N.1, based on other parameters. If parameter l is missing, this function will calculate l based on other parameters. If parameter gamma.c is missing, this function will calculate gamma.c based on other parameters.
