@@ -1,4 +1,14 @@
 
+#' Title
+#'
+#' @param design
+#' @param seed
+#' @param nsim
+#'
+#' @return
+#' @export
+#'
+#' @examples
 SimData <- function(design,seed,nsim){
 
   alpha <- design$alpha

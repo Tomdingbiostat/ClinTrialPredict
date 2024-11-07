@@ -1,4 +1,14 @@
 
+#' Title
+#'
+#' @param design
+#' @param seed
+#' @param nsim
+#'
+#' @return
+#' @export
+#'
+#' @examples
 SimDataTwoArm <- function(design,seed,nsim){
 
   design0 <- list(
