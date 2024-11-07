@@ -2,7 +2,7 @@
 % Please edit documentation in R/TrialPred.TwoArm.R
 \name{TrialPred.TwoArm}
 \alias{TrialPred.TwoArm}
-\title{Title Predict two-arm clinical trial}
+\title{Function for predicting two-arm clinical trial}
 \usage{
 TrialPred.TwoArm(
   N.0 = NULL,
@@ -48,15 +48,22 @@ TrialPred.TwoArm(
 
 \item{nu1.t}{scale parameter of a weibull survival distribution for control arm}
 
-\item{design2}{a list containing parameters for two-arm design}
+\item{design2}{a list containing all the above parameters for two-arm design}
 }
 \value{
-This function returns a list including all design parameters as the same with input parameters of this function. If parameter \code{d} is missing, this function will calculate l, based on other parameters. If parameter N.0 or N.1 is missing, this function will calculate N.0 or N.1, based on other parameters. If parameter l is missing, this function will calculate l based on other parameters. If parameter gamma.c is missing, this function will calculate gamma.c based on other parameters.
+This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters \code{d}, \code{N.0}(or \code{N.1}), \code{l} or \code{gamma.c} is missing, it can be calculated based on the other parameters.
 }
 \description{
-Title Predict two-arm clinical trial
+Function for predicting two-arm clinical trial
 }
 \examples{
 # calculate the expected number of events
 TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+
+# calculate the expected number of events using a list as input
+design2 <- list(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+TrialPred.TwoArm(design2=design2)
+
+
+
 }

@@ -4,6 +4,7 @@
 
 NumEventsSubTwoArm(ratio=1,d=10,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
 
+TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=3,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 
 # TrialPred.TwoArm(ratio=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6, d=23.87)
 # TrialPred.TwoArm(N.0=100,N.1=100,d=23.87,ratio=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4)

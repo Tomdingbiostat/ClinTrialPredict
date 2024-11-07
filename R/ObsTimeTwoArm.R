@@ -26,10 +26,11 @@ ObsTimeTwoArm <- function(     N.0,       # Number of subjects plan to be enroll
                                gamma.c,   # parameters of a weibull censoring distribution for both groups
                                s,         # enrollment period time
                                m,         # maximum follow-up time for a subject
-                               design2
+                               design2=NULL
                             ){
 
       if(!is.null(design2)){ for (name in names(design2)) { assign(name, design2[[name]]) } }
+      #print(design2)
 
       P0.delta.0.s <- NumEventsSub(N=N.0,s=s,m=m,l=s,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
       P1.delta.0.s <- NumEventsSub(N=N.1,s=s,m=m,l=s,alpha=alpha1.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
@@ -133,15 +134,16 @@ ObsTimeTwoArm <- function(     N.0,       # Number of subjects plan to be enroll
       result <- list(
                      N.0 = N.0
                     ,N.1 = N.1
+                    ,ratio=ratio
+                    ,d=d
+                    ,l=l$minimum
+                    ,gamma.c = gamma.c
+                    ,s=s
+                    ,m=m
                     ,alpha0.t = alpha0.t
                     ,nu0.t    = nu0.t
                     ,alpha1.t = alpha1.t
                     ,nu1.t    = nu1.t
-                    ,gamma.c = gamma.c
-                    ,s=s
-                    ,m=m
-                    ,l=l$minimum
-                    ,d=d
                     ,P0.delta.0 = P0.delta.0
                     ,d0 = N.0 * P0.delta.0
                     ,P1.delta.0 = P1.delta.0

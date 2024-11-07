@@ -1,10 +1,10 @@
 
-#' Title Predict two-arm clinical trial
+#' Function for predicting two-arm clinical trial
 #'
 #' @param N.0 number of subjects plan to be enrolled in control arm
 #' @param N.1 number of subjects plan to be enrolled in experimental arm
-#' @param ratio randomization ratio between two arms: N.1 / N.0
-#' @param d expected number of events observed at time l
+#' @param ratio randomization ratio between two arms: `N.1` / `N.0`
+#' @param d expected number of events observed at time `l`
 #' @param l observation time
 #' @param gamma.c parameter of the exponential distribution of censoring time
 #' @param alpha0.t shape parameter of weibull survival distribution for control arm
@@ -14,13 +14,28 @@
 #' @param nu1.t scale parameter of a weibull survival distribution for control arm
 #' @param s  enrollment time
 #' @param m maximum follow-up time for a subject
-#' @param design2 a list containing parameters for two-arm design
+#' @param design2 a list containing all the above parameters for two-arm design
 #'
-#' @return This function returns a list including all design parameters as the same with input parameters of this function. If parameter `d` is missing, this function will calculate l, based on other parameters. If parameter N.0 or N.1 is missing, this function will calculate N.0 or N.1, based on other parameters. If parameter l is missing, this function will calculate l based on other parameters. If parameter gamma.c is missing, this function will calculate gamma.c based on other parameters.
+#' @return This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters `d`, `N.0`(or `N.1`), `l` or `gamma.c` is missing, it can be calculated based on the other parameters.
+#'
 #' @export
 #'
 #' @examples # calculate the expected number of events
 #' TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+#'
+#' # calculate the expected number of events using a list as input
+#' design2 <- list(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+#' TrialPred.TwoArm(design2=design2)
+#'
+#' # calculate the number of subject enrolled
+#' TrialPred.TwoArm(ratio=1,d=24,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+#'
+#' # calculate the observation time
+#' TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,d=10)
+#'
+#' # calculate the censoring parameter
+#' TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=3,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+
 TrialPred.TwoArm <- function(
                                  N.0=NULL
                                 ,N.1=NULL
@@ -40,8 +55,6 @@ TrialPred.TwoArm <- function(
 
   if(!is.null(design2)){
     for (name in names(design2)) { assign(name, design2[[name]]) }
-  }else{
-    design2 <- list(N.0=N.0,N.1=N.1,ratio=ratio,d=d,l=l,gamma.c=gamma.c,alpha0.t=alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,HR=HR,s=s,m=m)
   }
 
   if(!is.null(HR)){
@@ -53,10 +66,12 @@ TrialPred.TwoArm <- function(
     N.1 <- N.0 * ratio
   }else if(!is.null(ratio) & !is.null(N.1) & is.null(N.0)){
     N.0 <- N.1 / ratio
+  }else if(!is.null(N.0) & !is.null(N.1)){
+    ratio <- N.1 / N.0
   }
 
+  design2 <- list(N.0=N.0,N.1=N.1,ratio=ratio,d=d,l=l,gamma.c=gamma.c,alpha0.t=alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,HR=HR,s=s,m=m)
 
-  #print(design2)
   if( is.null(d) ){
     #return(NumEventsSubTwoArm(N.0=N.0,N.1=N.1,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m,l=l))
     return(NumEventsSubTwoArm(design2=design2))
@@ -68,6 +83,7 @@ TrialPred.TwoArm <- function(
   }
 
   else if( is.null(l) ){
+    #print('yes')
     #return(ObsTimeTwoArm(N.0=N.0,N.1=N.1,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m))
     return(ObsTimeTwoArm(design2=design2))
   }
@@ -78,5 +94,4 @@ TrialPred.TwoArm <- function(
   }
 }
 
-# TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
-# TrialPred.TwoArm(ratio=1,d=23.87,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+
