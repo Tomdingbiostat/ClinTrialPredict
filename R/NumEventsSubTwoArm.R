@@ -1,5 +1,24 @@
 
 
+#' Title
+#'
+#' @param N.0 example
+#' @param N.1 example
+#' @param ratio example
+#' @param d 1
+#' @param alpha0.t 1
+#' @param nu0.t 1
+#' @param alpha1.t 1
+#' @param nu1.t 1
+#' @param gamma.c 1
+#' @param s 1
+#' @param m 1
+#' @param l 1
+#'
+#' @return
+#' @export
+#'
+#' @examples
 NumEventsSubTwoArm <- function(
                                N.0=NULL,       # Number of subjects plan to be enrolled in group 1
                                N.1=NULL,       # Number of subjects plan to be enrolled in group 2

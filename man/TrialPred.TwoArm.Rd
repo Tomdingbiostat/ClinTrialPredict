@@ -21,31 +21,31 @@ TrialPred.TwoArm(
 )
 }
 \arguments{
-\item{N.0}{s}
+\item{N.0}{The number of subjects plan to be enrolled in control arm}
 
-\item{N.1}{s}
+\item{N.1}{The number of subjects plan to be enrolled in experimental arm}
 
-\item{ratio}{s}
+\item{ratio}{The Randomization ratio between two arms: N.1 / N.0}
 
-\item{d}{s}
+\item{d}{The expected number of events observed at time l}
 
-\item{l}{s}
+\item{l}{The observation time}
 
-\item{gamma.c}{s}
+\item{gamma.c}{The parameter of the exponential distribution of censoring time}
 
-\item{alpha0.t}{s}
+\item{alpha0.t}{The shape parameter of weibull survival distribution for control arm}
 
-\item{nu0.t}{s}
+\item{nu0.t}{The scale parameter of weibull survival distribution for control arm}
 
-\item{HR}{s}
+\item{HR}{The hazard ratio of experimental group over control group}
 
-\item{alpha1.t}{s}
+\item{alpha1.t}{The shape parameters of weibull survival distribution for experimental arm}
 
-\item{nu1.t}{s}
+\item{nu1.t}{The scale parameter of a weibull survival distribution for control arm}
 
-\item{s}{s}
+\item{s}{The enrollment time}
 
-\item{m}{s}
+\item{m}{The maximum follow-up time for a subject}
 }
 \value{
 ssss
