@@ -21,38 +21,39 @@ TrialPred.TwoArm(
 )
 }
 \arguments{
-\item{N.0}{The number of subjects plan to be enrolled in control arm}
+\item{N.0}{number of subjects plan to be enrolled in control arm}
 
-\item{N.1}{The number of subjects plan to be enrolled in experimental arm}
+\item{N.1}{number of subjects plan to be enrolled in experimental arm}
 
-\item{ratio}{The randomization ratio between two arms: N.1 / N.0}
+\item{ratio}{randomization ratio between two arms: N.1 / N.0}
 
-\item{d}{The expected number of events observed at time l}
+\item{d}{expected number of events observed at time l}
 
-\item{l}{The observation time}
+\item{l}{observation time}
 
-\item{gamma.c}{The parameter of the exponential distribution of censoring time}
+\item{gamma.c}{parameter of the exponential distribution of censoring time}
 
-\item{alpha0.t}{The shape parameter of weibull survival distribution for control arm}
+\item{alpha0.t}{shape parameter of weibull survival distribution for control arm}
 
-\item{nu0.t}{The scale parameter of weibull survival distribution for control arm}
+\item{nu0.t}{scale parameter of weibull survival distribution for control arm}
 
-\item{HR}{The hazard ratio of experimental group over control group}
+\item{HR}{hazard ratio of experimental group over control group}
 
-\item{alpha1.t}{The shape parameters of weibull survival distribution for experimental arm}
+\item{alpha1.t}{shape parameters of weibull survival distribution for experimental arm}
 
-\item{nu1.t}{The scale parameter of a weibull survival distribution for control arm}
+\item{nu1.t}{scale parameter of a weibull survival distribution for control arm}
 
-\item{s}{The enrollment time}
+\item{s}{enrollment time}
 
-\item{m}{The maximum follow-up time for a subject}
+\item{m}{maximum follow-up time for a subject}
 }
 \value{
-ssss
+This function returns a list including all design parameters as the same with input parameters of this function. If parameter d is missing, this function will calculate l, based on other parameters. If parameter N.0 or N.1 is missing, this function will calculate N.0 or $N.1$, based on other parameters. If parameter $l$ is missing, this function will calculate $l$ based on other parameters. If parameter gamma.c is missing, this function will calculate gamma.c based on other parameters.
 }
 \description{
 Title
 }
 \examples{
-sssss
+# calculate the expected number of events
+TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
 }
