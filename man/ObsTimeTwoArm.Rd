@@ -15,7 +15,7 @@ ObsTimeTwoArm(
   gamma.c,
   s,
   m,
-  design2
+  design2 = NULL
 )
 }
 \arguments{

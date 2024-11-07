@@ -4,10 +4,26 @@
 \alias{SimData}
 \title{Title}
 \usage{
-SimData(design, seed, nsim)
+SimData(
+  N = NULL,
+  d = NULL,
+  l = NULL,
+  gamma = NULL,
+  s = NULL,
+  m = NULL,
+  alpha = NULL,
+  nu = NULL,
+  design1,
+  seed,
+  nsim
+)
 }
 \arguments{
-\item{nsim}{}
+\item{design1}{list containing all the above parameters for single-arm design}
+
+\item{seed}{random seed}
+
+\item{nsim}{number of simulations}
 }
 \description{
 Title

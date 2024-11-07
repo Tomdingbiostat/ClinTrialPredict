@@ -26,9 +26,9 @@ TrialPred.TwoArm(
 
 \item{N.1}{number of subjects plan to be enrolled in experimental arm}
 
-\item{ratio}{randomization ratio between two arms: N.1 / N.0}
+\item{ratio}{randomization ratio between two arms: \code{N.1} / \code{N.0}}
 
-\item{d}{expected number of events observed at time l}
+\item{d}{expected number of events observed at time \code{l}}
 
 \item{l}{observation time}
 
@@ -64,6 +64,12 @@ TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c
 design2 <- list(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
 TrialPred.TwoArm(design2=design2)
 
+# calculate the number of subject enrolled
+TrialPred.TwoArm(ratio=1,d=24,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
 
+# calculate the observation time
+TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,d=10)
 
+# calculate the censoring parameter
+TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=3,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 }
