@@ -1,5 +1,5 @@
 
-#' Title
+#' Title Predict two-arm clinical trial
 #'
 #' @param N.0 number of subjects plan to be enrolled in control arm
 #' @param N.1 number of subjects plan to be enrolled in experimental arm
@@ -15,7 +15,7 @@
 #' @param s  enrollment time
 #' @param m maximum follow-up time for a subject
 #'
-#' @return This function returns a list including all design parameters as the same with input parameters of this function. If parameter d is missing, this function will calculate l, based on other parameters. If parameter N.0 or N.1 is missing, this function will calculate N.0 or $N.1$, based on other parameters. If parameter $l$ is missing, this function will calculate $l$ based on other parameters. If parameter gamma.c is missing, this function will calculate gamma.c based on other parameters.
+#' @return This function returns a list including all design parameters as the same with input parameters of this function. If parameter `d` is missing, this function will calculate l, based on other parameters. If parameter N.0 or N.1 is missing, this function will calculate N.0 or N.1, based on other parameters. If parameter l is missing, this function will calculate l based on other parameters. If parameter gamma.c is missing, this function will calculate gamma.c based on other parameters.
 #' @export
 #'
 #' @examples # calculate the expected number of events

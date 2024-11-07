@@ -2,7 +2,7 @@
 % Please edit documentation in R/TrialPred.TwoArm.R
 \name{TrialPred.TwoArm}
 \alias{TrialPred.TwoArm}
-\title{Title}
+\title{Title Predict two-arm clinical trial}
 \usage{
 TrialPred.TwoArm(
   N.0 = NULL,
@@ -48,10 +48,10 @@ TrialPred.TwoArm(
 \item{m}{maximum follow-up time for a subject}
 }
 \value{
-This function returns a list including all design parameters as the same with input parameters of this function. If parameter d is missing, this function will calculate l, based on other parameters. If parameter N.0 or N.1 is missing, this function will calculate N.0 or $N.1$, based on other parameters. If parameter $l$ is missing, this function will calculate $l$ based on other parameters. If parameter gamma.c is missing, this function will calculate gamma.c based on other parameters.
+This function returns a list including all design parameters as the same with input parameters of this function. If parameter \code{d} is missing, this function will calculate l, based on other parameters. If parameter N.0 or N.1 is missing, this function will calculate N.0 or N.1, based on other parameters. If parameter l is missing, this function will calculate l based on other parameters. If parameter gamma.c is missing, this function will calculate gamma.c based on other parameters.
 }
 \description{
-Title
+Title Predict two-arm clinical trial
 }
 \examples{
 # calculate the expected number of events
