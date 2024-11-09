@@ -10,6 +10,7 @@
 #' @param m example
 #' @param alpha example
 #' @param nu example
+#' @param design1 example
 #'
 #' @return example
 #' @export
@@ -24,10 +25,15 @@ TrialPred.OneArm <- function(
     ,m=NULL        # maximum follow-up for a single subject
     ,alpha=NULL    # shape parameter
     ,nu=NULL       # scale parameter
+    ,design1=NULL
 
 
 
 ){
+
+  if(!is.null(design1)){
+    for (name in names(design1)) { assign(name, design1[[name]]) }
+  }
 
   if( is.null(s) | is.null(m) | is.null(alpha) | is.null(nu) ) {
     stop("missing parameter s,m,alpha, or nu")

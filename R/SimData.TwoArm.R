@@ -60,13 +60,13 @@ SimData.TwoArm <- function(
   #                   ,m = design$m
   #                 )
 
-  ds0 <- SimData(design1=design1.0,seed=seed,nsim=nsim)$ds
+  ds0 <- SimData(design1=design1.0,seed=seed,nsim=nsim)$dataset
   ds0$arm <- 0
-  ds1 <- SimData(design1=design1.1,seed=seed,nsim=nsim)$ds
+  ds1 <- SimData(design1=design1.1,seed=seed,nsim=nsim)$dataset
   ds1$arm <- 1
-  ds <- rbind(ds0,ds1)
+  dataset <- rbind(ds0,ds1)
 
   #return(ds)
-  return( list(  dataset = ds,design2 = design2) )
+  return( list(  dataset = dataset,design2 = design2) )
 
 }

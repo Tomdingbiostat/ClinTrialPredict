@@ -12,7 +12,8 @@ TrialPred.OneArm(
   s = NULL,
   m = NULL,
   alpha = NULL,
-  nu = NULL
+  nu = NULL,
+  design1 = NULL
 )
 }
 \arguments{
@@ -31,6 +32,8 @@ TrialPred.OneArm(
 \item{alpha}{example}
 
 \item{nu}{example}
+
+\item{design1}{example}
 }
 \value{
 example

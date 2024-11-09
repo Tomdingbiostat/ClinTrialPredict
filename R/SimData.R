@@ -47,6 +47,6 @@ SimData <- function(
   event <- ifelse(t <= c & (t + a) < l & t <=m, 1, 0)
   dataset <- data.frame(sim, t, c, a, event)
 
-  return( list(  ds = dataset,design1 = design1) )
+  return( list(  dataset = dataset,design1 = design1) )
 
 }
