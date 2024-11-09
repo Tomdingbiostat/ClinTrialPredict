@@ -41,10 +41,10 @@ SimData <- function(
 
   ID <- seq(1,N*nsim)
   sim <- ceiling(ID/N)
-  t <- rweibull(N*nsim, shape = alpha,scale=nu)
+  t <- rweibull(N*nsim, shape = alpha, scale=nu)
   c <- rexp(N*nsim, rate = gamma)
   a <- runif(N*nsim, min = 0, max = s)
-  event <- ifelse(t <= c & (t + a) < l & t <=m, 1, 0)
+  event <- ifelse(t <= c & (t + a) <= l & t <=m, 1, 0)
   dataset <- data.frame(sim, t, c, a, event)
 
   return( list(  dataset = dataset,design1 = design1) )
