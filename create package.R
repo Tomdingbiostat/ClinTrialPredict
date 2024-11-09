@@ -25,3 +25,5 @@ use_readme_rmd()
 
 export(TrialPred.TwoArm)
 
+check()
+

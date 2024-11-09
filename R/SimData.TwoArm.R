@@ -67,6 +67,6 @@ SimData.TwoArm <- function(
   ds <- rbind(ds0,ds1)
 
   #return(ds)
-  return( list(  ds = dataset,design2 = design2) )
+  return( list(  dataset = ds,design2 = design2) )
 
 }
