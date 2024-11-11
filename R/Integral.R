@@ -21,7 +21,7 @@ fun <- function(a,t,alpha,nu,gamma,s=s){
 #   pracma::integral2( function(a,t) 1/s * dweibull(t,shape=alpha,scale=nu) * (1-pexp(t,rate=gamma)),0,l,0,function(x) l-x)$Q
 # }
 integral.s1 <- function(s,m,l,alpha,nu,gamma){
-  integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,l)
+  integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,l)$value
 }
 #integral.s1(s=12,m=6,l=3,alpha=0.1,nu=20,gamma=0.1)
 
@@ -54,10 +54,10 @@ integral.s1 <- function(s,m,l,alpha,nu,gamma){
 
 integral.s2 <- function(s,m,l,alpha,nu,gamma){
   if(l != m){
-    integrate(Vectorize( function(a){ integrate(fun,0,m,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,l-m) +
-    integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),l-m,l)
+    integrate(Vectorize( function(a){ integrate(fun,0,m,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,l-m)$value +
+    integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),l-m,l)$value
   }else{
-    integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),l-m,l)
+    integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),l-m,l)$value
   }
 }
 
@@ -81,7 +81,7 @@ integral.s2 <- function(s,m,l,alpha,nu,gamma){
 # }
 
 integral.s3 <- function(s,m,l,alpha,nu,gamma){
-  integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,s)
+  integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,s)$value
 }
 
 #' Title
@@ -103,8 +103,8 @@ integral.s3 <- function(s,m,l,alpha,nu,gamma){
 # }
 
 integral.s4 <- function(s,m,l,alpha,nu,gamma){
-  integrate(Vectorize( function(a){ integrate(fun,0,m,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,l-m) +
-  integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),l-m,s)
+  integrate(Vectorize( function(a){ integrate(fun,0,m,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,l-m)$value +
+  integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),l-m,s)$value
 }
 
 #' Title
@@ -125,7 +125,7 @@ integral.s4 <- function(s,m,l,alpha,nu,gamma){
 # }
 
 integral.s5 <- function(s,m,l,alpha,nu,gamma){
-  integrate(Vectorize( function(a){ integrate(fun,0,m,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,s)
+  integrate(Vectorize( function(a){ integrate(fun,0,m,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s)$value } ),0,s)$value
 }
 
 
