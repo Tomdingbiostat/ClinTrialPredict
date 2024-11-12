@@ -54,10 +54,10 @@ integral.s1 <- function(s,m,l,alpha,nu,gamma){
 
 integral.s2 <- function(s,m,l,alpha,nu,gamma){
   if(l != m){
-    integrate(Vectorize( function(a){ integrate(fun,0,m,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s,rel.tol=0.00000000000001)$value } ),0,l-m)$value +
-    integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s,rel.tol=0.00000000000001)$value } ),l-m,l)$value
+    integrate(Vectorize( function(a){ integrate(fun,0,m,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s,rel.tol=0.00000000001)$value } ),0,l-m)$value +
+    integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s,rel.tol=0.00000000001)$value } ),l-m,l)$value
   }else{
-    integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s,rel.tol=0.00000000000001)$value } ),l-m,l)$value
+    integrate(Vectorize( function(a){ integrate(fun,0,l-a,a=a,alpha=alpha,nu=nu,gamma=gamma,s=s,rel.tol=0.00000000001)$value } ),l-m,l)$value
   }
 }
 

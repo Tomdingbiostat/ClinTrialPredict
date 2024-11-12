@@ -61,7 +61,7 @@ files <- list.files("./R", pattern = "\\.R$", full.names = TRUE)
 lapply(files, source)
 
 
-CensRate(N=100,d=5,s=12,m=6,l=5, alpha=0.8,nu=20)
+CensRate(N=200,d=50,s=12,m=6,l=5, alpha=0.8,nu=20)
 NumEventsSub(N=100,gamma=20,s=12,m=6,l=5, alpha=0.8,nu=20)
 
 NumEventsSub(N=100,s=5,m=3,l=2, alpha=1,nu=5,gamma=0.6047)
