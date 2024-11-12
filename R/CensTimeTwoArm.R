@@ -85,7 +85,7 @@ CensTimeTwoArm <- function(    N.0,       # Number of subjects plan to be enroll
         int <- N.0 * integral.s1(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=gamma) + N.1 * integral.s1(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma)
         abs(int - d)
       }
-      gamma <- optimize(of,interval=c(0,10*nu1.t))
+      gamma <- optimize(of,interval=c(0,log(0.01)/(-min(m,l))))
     }
   }
 

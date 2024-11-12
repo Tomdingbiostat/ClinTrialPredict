@@ -57,10 +57,13 @@ ObsTimeTwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,
 
 
 
+files <- list.files("./R", pattern = "\\.R$", full.names = TRUE)
+lapply(files, source)
 
 
+CensRate(N=100,d=5,s=12,m=6,l=5, alpha=0.8,nu=20)
+NumEventsSub(N=100,gamma=20,s=12,m=6,l=5, alpha=0.8,nu=20)
 
-CensRate(N=100,d=5,s=5,m=3,l=2, alpha=1,nu=5)
 NumEventsSub(N=100,s=5,m=3,l=2, alpha=1,nu=5,gamma=0.6047)
 
 CensRate(N=100,d=10.54,s=5,m=3,l=4, alpha=1,nu=5)
