@@ -58,7 +58,8 @@ CensTimeTwoArm <- function(    N.0,       # Number of subjects plan to be enroll
   # Scenario 2:
   else if(l<=s & l>m){
     #d.0 <- N.0 * ( integral2(f2.0.0,0,l-m,0,m)$Q + integral2(f2.0.0,l-m,l,0,function(x) l-x)$Q )+ N.1 * ( integral2(f2.1.0,0,l-m,0,m)$Q + integral2(f2.1.0,l-m,l,0,function(x) l-x)$Q )
-    d.0 <- N.0*integral.s2(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=gamma) + N.1*integral.s2(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=0.001)
+    d.0 <- N.0*integral.s2(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=0.001) + N.1*integral.s2(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=0.001)
+    print(d.0)
     if(d>d.0){
       stop("Error: can not acheieve the expected number of events")
     } else{
