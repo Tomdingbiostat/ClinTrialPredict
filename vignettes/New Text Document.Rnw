@@ -1,0 +1,6 @@
+\documentclass{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\includepdf[pages=-, fitpaper=true]{ClinTrialPredict paper arix.pdf}
+\end{document}
