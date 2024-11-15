@@ -2,37 +2,26 @@
 
 #' Title
 #'
-#' @param N.0 example
-#' @param N.1 example
-#' @param ratio example
-#' @param d 1
-#' @param alpha0.t 1
-#' @param nu0.t 1
-#' @param alpha1.t 1
-#' @param nu1.t 1
-#' @param gamma.c 1
-#' @param s 1
-#' @param m 1
-#' @param l 1
+#' @inheritParams TrialPred.TwoArm
 #'
 #' @return
 #' @export
 #'
 #' @examples
 NumEventsSubTwoArm <- function(
-                               N.0=NULL,       # Number of subjects plan to be enrolled in group 1
-                               N.1=NULL,       # Number of subjects plan to be enrolled in group 2
-                               ratio=NULL,     # N.1 / N.0
-                               d=NULL,         # expected number of events observed at l
-                               alpha0.t=NULL,  # shape parameter of a weibull survival distribution for group 1
-                               nu0.t=NULL,     # scale parameter of a weibull survival distribution for group 1
-                               alpha1.t,       # shape parameters of a weibull survival distribution for group 2
-                               nu1.t,          # scale parameter of a weibull survival distribution for group 2
-                               gamma.c,        # parameters of a weibull censoring distribution for both groups
-                               s,              # enrollment period time
-                               m,              # maximum follow-up time for a subject
-                               l,              # observation time
-                               design2=NULL     # all design parameters for two-arm
+                               N.0=NULL,
+                               N.1=NULL,
+                               ratio=NULL,
+                               d=NULL,
+                               alpha0.t=NULL,
+                               nu0.t=NULL,
+                               alpha1.t=NULL,
+                               nu1.t=NULL,
+                               gamma.c,
+                               s,
+                               m,
+                               l,
+                               design2=NULL
                               )
   {
 

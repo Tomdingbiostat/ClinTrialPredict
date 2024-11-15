@@ -21,29 +21,31 @@ NumEventsSubTwoArm(
 )
 }
 \arguments{
-\item{N.0}{example}
+\item{N.0}{number of subjects plan to be enrolled in control arm}
 
-\item{N.1}{example}
+\item{N.1}{number of subjects plan to be enrolled in experimental arm}
 
-\item{ratio}{example}
+\item{ratio}{randomization ratio between two arms: \code{N.1} / \code{N.0}}
 
-\item{d}{1}
+\item{d}{expected number of events observed at time \code{l}}
 
-\item{alpha0.t}{1}
+\item{alpha0.t}{shape parameter of weibull survival distribution for control arm}
 
-\item{nu0.t}{1}
+\item{nu0.t}{scale parameter of weibull survival distribution for control arm}
 
-\item{alpha1.t}{1}
+\item{alpha1.t}{shape parameters of weibull survival distribution for experimental arm}
 
-\item{nu1.t}{1}
+\item{nu1.t}{scale parameter of a weibull survival distribution for control arm}
 
-\item{gamma.c}{1}
+\item{gamma.c}{parameter of the exponential distribution of censoring time}
 
-\item{s}{1}
+\item{s}{enrollment time}
 
-\item{m}{1}
+\item{m}{maximum follow-up time for a subject}
 
-\item{l}{1}
+\item{l}{observation time}
+
+\item{design2}{a list containing all the above parameters for two-arm design}
 }
 \description{
 Title

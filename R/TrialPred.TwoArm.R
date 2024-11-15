@@ -20,6 +20,10 @@
 #'
 #' @export
 #'
+#' @description
+#' A short description...
+#'
+#'
 #' @examples # calculate the expected number of events
 #' TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
 #'

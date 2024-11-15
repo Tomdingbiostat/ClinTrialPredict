@@ -1,0 +1,22 @@
+---
+title: "ClinTrialPredidct"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ClinTrialPredidct}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ClinTrialPredict)
+```
+
+
+This is test.

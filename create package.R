@@ -19,11 +19,13 @@ install()
 
 library(ClinTrialPredict)
 
-use_package('pracma')
+#use_package('pracma')
 
 use_readme_rmd()
 
 export(TrialPred.TwoArm)
 
 check()
+
+usethis::use_vignette("ClinTrialPredidct")
 
