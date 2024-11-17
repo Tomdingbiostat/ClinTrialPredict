@@ -23,14 +23,6 @@ SimData <- function(
                     ,nsim
                     ){
 
-  # alpha <- design$alpha
-  # nu <- design$nu
-  # gamma <- design$gamma
-  # N <- design$N
-  # s <- design$s
-  # l <- design$l
-  # m <- design$m
-
   if(!is.null(design1)){
     for (name in names(design1)) { assign(name, design1[[name]]) }
   }else{
@@ -41,11 +33,12 @@ SimData <- function(
 
   ID <- seq(1,N*nsim)
   sim <- ceiling(ID/N)
+  subject <- ID %% N
   t <- rweibull(N*nsim, shape = alpha, scale=nu)
   c <- rexp(N*nsim, rate = gamma)
   a <- runif(N*nsim, min = 0, max = s)
   event <- ifelse(t <= c & (t + a) <= l & t <=m, 1, 0)
-  dataset <- data.frame(sim, t, c, a, event)
+  dataset <- data.frame(sim,subject,a, t, c, event)
 
   return( list(  dataset = dataset,design1 = design1) )
 
