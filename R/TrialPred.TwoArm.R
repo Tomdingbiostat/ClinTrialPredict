@@ -21,7 +21,7 @@
 #' @export
 #'
 #' @description
-#' A short description...
+#' predicting two-arm clinical trial
 #'
 #'
 #' @examples # calculate the expected number of events

@@ -8,7 +8,6 @@ NumEventsSub.TwoArm(
   N.0 = NULL,
   N.1 = NULL,
   ratio = NULL,
-  d = NULL,
   l = NULL,
   gamma.c = NULL,
   alpha0.t = NULL,
@@ -19,33 +18,6 @@ NumEventsSub.TwoArm(
   m,
   design2 = NULL
 )
-}
-\arguments{
-\item{N.0}{number of subjects plan to be enrolled in control arm}
-
-\item{N.1}{number of subjects plan to be enrolled in experimental arm}
-
-\item{ratio}{randomization ratio between two arms: \code{N.1} / \code{N.0}}
-
-\item{d}{expected number of events observed at time \code{l}}
-
-\item{l}{observation time}
-
-\item{gamma.c}{parameter of the exponential distribution of censoring time}
-
-\item{alpha0.t}{shape parameter of weibull survival distribution for control arm}
-
-\item{nu0.t}{scale parameter of weibull survival distribution for control arm}
-
-\item{alpha1.t}{shape parameters of weibull survival distribution for experimental arm}
-
-\item{nu1.t}{scale parameter of a weibull survival distribution for control arm}
-
-\item{s}{enrollment time}
-
-\item{m}{maximum follow-up time for a subject}
-
-\item{design2}{a list containing all the above parameters for two-arm design}
 }
 \description{
 Title

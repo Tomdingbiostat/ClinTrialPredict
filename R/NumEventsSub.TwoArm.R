@@ -2,7 +2,7 @@
 
 #' Title
 #'
-#' @inheritParams TrialPred.TwoArm
+#' @inheritParams TrialPred.TwoArm N.0 N.1 ratio l gamma.c
 #'
 #' @return
 #' @export
@@ -12,7 +12,6 @@ NumEventsSub.TwoArm <- function(
                                N.0=NULL,
                                N.1=NULL,
                                ratio=NULL,
-                               d=NULL,
                                l=NULL,
                                gamma.c=NULL,
                                alpha0.t=NULL,

@@ -29,5 +29,7 @@ check()
 
 usethis::use_vignette("ClinTrialPredidct")
 
+use_release_issue()
+
 
 

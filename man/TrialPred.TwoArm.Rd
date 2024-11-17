@@ -54,7 +54,7 @@ TrialPred.TwoArm(
 This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters \code{d}, \code{N.0}(or \code{N.1}), \code{l} or \code{gamma.c} is missing, it can be calculated based on the other parameters.
 }
 \description{
-A short description...
+predicting two-arm clinical trial
 }
 \examples{
 # calculate the expected number of events
