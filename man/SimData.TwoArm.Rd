@@ -24,7 +24,7 @@ SimData.TwoArm(
 )
 }
 \arguments{
-\item{design2}{list containing all the above parameters for two-arm design}
+\item{design2}{a list containing all the above parameters for two-arm design}
 
 \item{seed}{random seed}
 

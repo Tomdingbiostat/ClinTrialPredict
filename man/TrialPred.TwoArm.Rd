@@ -11,13 +11,13 @@ TrialPred.TwoArm(
   d = NULL,
   l = NULL,
   gamma.c = NULL,
-  s = NULL,
-  m = NULL,
   alpha0.t = NULL,
   nu0.t = NULL,
   HR = NULL,
   alpha1.t = NULL,
   nu1.t = NULL,
+  s = NULL,
+  m = NULL,
   design2 = NULL
 )
 }
@@ -34,10 +34,6 @@ TrialPred.TwoArm(
 
 \item{gamma.c}{parameter of the exponential distribution of censoring time}
 
-\item{s}{enrollment time}
-
-\item{m}{maximum follow-up time for a subject}
-
 \item{alpha0.t}{shape parameter of weibull survival distribution for control arm}
 
 \item{nu0.t}{scale parameter of weibull survival distribution for control arm}
@@ -48,28 +44,32 @@ TrialPred.TwoArm(
 
 \item{nu1.t}{scale parameter of a weibull survival distribution for control arm}
 
+\item{s}{enrollment time}
+
+\item{m}{maximum follow-up time for a subject}
+
 \item{design2}{a list containing all the above parameters for two-arm design}
 }
 \value{
 This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters \code{d}, \code{N.0}(or \code{N.1}), \code{l} or \code{gamma.c} is missing, it can be calculated based on the other parameters.
 }
 \description{
-Function for predicting two-arm clinical trial
+A short description...
 }
 \examples{
 # calculate the expected number of events
-TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+TrialPred.TwoArm(N.0=100,N.1=100,d=NULL,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 
 # calculate the expected number of events using a list as input
-design2 <- list(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+design2 <- list(N.0=100,N.1=100,d=NULL,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 TrialPred.TwoArm(design2=design2)
 
 # calculate the number of subject enrolled
-TrialPred.TwoArm(ratio=1,d=24,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+TrialPred.TwoArm(N.0=NULL,N.1=NULL,ratio=1,d=24,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 
 # calculate the observation time
-TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,d=10)
+TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=NULL,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 
 # calculate the censoring parameter
-TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=3,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=3,gamma.c=NULL,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 }
