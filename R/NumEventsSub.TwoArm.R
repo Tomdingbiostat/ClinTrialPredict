@@ -1,8 +1,11 @@
 
 
-#' Title
+#' Calculate the expected number of events or number of subjects enrolled in a two-arm clinical trial
 #'
-#' @inheritParams TrialPred.TwoArm N.0 N.1 ratio l gamma.c
+#' @description
+#' Calculate the expected number of events or number of subjects enrolled in a two-arm clinical trial
+#'
+#' @inheritParams TrialPred.TwoArm
 #'
 #' @return
 #' @export

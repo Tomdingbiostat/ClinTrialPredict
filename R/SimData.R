@@ -1,13 +1,4 @@
 
-#' Title
-#'
-#' @param design1 list containing all the above parameters for single-arm design
-#' @param seed random seed
-#' @param nsim number of simulations
-#'
-#' @return
-#'
-#' @examples
 SimData <- function(
                      N=NULL
                     ,d=NULL

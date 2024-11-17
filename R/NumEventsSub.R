@@ -1,19 +1,4 @@
 
-#' Title
-#'
-#' @param N
-#' @param s
-#' @param m
-#' @param l
-#' @param alpha
-#' @param nu
-#' @param gamma
-#' @param d
-#' @param design1
-#'
-#' @return
-#'
-#' @examples
 NumEventsSub <- function( N=NULL
                          ,d=NULL
                          ,l=NULL

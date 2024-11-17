@@ -1,18 +1,5 @@
 
 
-#' Title
-#'
-#' @param N
-#' @param d
-#' @param s
-#' @param m
-#' @param l
-#' @param alpha
-#' @param nu
-#'
-#' @return
-#'
-#' @examples
 CensRate <- function(N,d,s,m,l,alpha,nu){
 
   P.delta.0 <- d/N

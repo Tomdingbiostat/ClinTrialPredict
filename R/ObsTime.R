@@ -1,18 +1,5 @@
 
 
-#' Title
-#'
-#' @param N
-#' @param d
-#' @param s
-#' @param m
-#' @param alpha
-#' @param nu
-#' @param gamma
-#'
-#' @return
-#'
-#' @examples
 ObsTime <- function(N,d,s,m,alpha,nu,gamma){
 
   P.delta.0 <- d/N

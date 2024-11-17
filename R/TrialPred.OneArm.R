@@ -1,20 +1,5 @@
 
 
-#' Title
-#'
-#' @param N  example
-#' @param d  example
-#' @param l  example
-#' @param gamma example
-#' @param s example
-#' @param m example
-#' @param alpha example
-#' @param nu example
-#' @param design1 example
-#'
-#' @return example
-#'
-#' @examples ex
 TrialPred.OneArm <- function(
     N=NULL        # Number of subjects enrolled
     ,d=NULL        # expected number of events observed at l
