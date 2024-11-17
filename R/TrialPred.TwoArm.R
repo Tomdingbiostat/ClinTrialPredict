@@ -25,20 +25,20 @@
 #'
 #'
 #' @examples # calculate the expected number of events
-#' TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+#' TrialPred.TwoArm(N.0=100,N.1=100,d=NULL,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 #'
 #' # calculate the expected number of events using a list as input
-#' design2 <- list(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+#' design2 <- list(N.0=100,N.1=100,d=NULL,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 #' TrialPred.TwoArm(design2=design2)
 #'
 #' # calculate the number of subject enrolled
-#' TrialPred.TwoArm(ratio=1,d=24,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,l=6)
+#' TrialPred.TwoArm(N.0=NULL,N.1=NULL,ratio=1,d=24,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 #'
 #' # calculate the observation time
-#' TrialPred.TwoArm(N.0=100,N.1=100,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,gamma.c=1,s=5,m=4,d=10)
+#' TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=NULL,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 #'
 #' # calculate the censoring parameter
-#' TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=3,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+#' TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=3,gamma.c=NULL,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 
 TrialPred.TwoArm <- function(
                                  N.0=NULL
@@ -47,13 +47,13 @@ TrialPred.TwoArm <- function(
                                 ,d=NULL
                                 ,l=NULL
                                 ,gamma.c=NULL
-                                ,s=NULL
-                                ,m=NULL
                                 ,alpha0.t=NULL
                                 ,nu0.t=NULL
                                 ,HR = NULL
                                 ,alpha1.t=NULL
                                 ,nu1.t=NULL
+                                ,s=NULL
+                                ,m=NULL
                                 ,design2=NULL
 ){
 
@@ -77,24 +77,19 @@ TrialPred.TwoArm <- function(
   design2 <- list(N.0=N.0,N.1=N.1,ratio=ratio,d=d,l=l,gamma.c=gamma.c,alpha0.t=alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,HR=HR,s=s,m=m)
 
   if( is.null(d) ){
-    #return(NumEventsSubTwoArm(N.0=N.0,N.1=N.1,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m,l=l))
-    return(NumEventsSubTwoArm(design2=design2))
+    return(NumEventsSub.TwoArm(design2=design2))
   }
 
   else if( is.null(N.0) & is.null(N.1) ){
-    #return(NumEventsSubTwoArm(ratio=ratio,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m,l=l))
-    return(NumEventsSubTwoArm(design2=design2))
+    return(NumEventsSub.TwoArm(design2=design2))
   }
 
   else if( is.null(l) ){
-    #print('yes')
-    #return(ObsTimeTwoArm(N.0=N.0,N.1=N.1,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,gamma.c=gamma.c,s=s,m=m))
-    return(ObsTimeTwoArm(design2=design2))
+    return(ObsTime.TwoArm(design2=design2))
   }
 
   else if( is.null(gamma.c) ){
-    #return(CensTimeTwoArm(N.0=N.0,N.1=N.1,d=d,alpha0.t = alpha0.t,nu0.t=nu0.t,alpha1.t=alpha1.t,nu1.t=nu1.t,s=s,m=m,l=l))
-    return(CensTimeTwoArm(design2=design2))
+    return(CensTime.TwoArm(design2=design2))
   }
 }
 

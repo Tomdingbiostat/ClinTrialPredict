@@ -12,7 +12,6 @@
 #' @param design1
 #'
 #' @return
-#' @export
 #'
 #' @examples
 NumEventsSub <- function( N=NULL

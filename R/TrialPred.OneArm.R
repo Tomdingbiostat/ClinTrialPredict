@@ -13,7 +13,6 @@
 #' @param design1 example
 #'
 #' @return example
-#' @export
 #'
 #' @examples ex
 TrialPred.OneArm <- function(

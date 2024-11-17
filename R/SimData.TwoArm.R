@@ -1,7 +1,7 @@
 
 #' Title
 #'
-#' @param design2  list containing all the above parameters for two-arm design
+#' @param design2  a list containing all the above parameters for two-arm design
 #' @param seed random seed
 #' @param nsim number of simulations
 #'
@@ -40,25 +40,6 @@ SimData.TwoArm <- function(
   design1.0 <- list(N=N.0,d=d,l=l,gamma=gamma.c,s=s,m=m,alpha=alpha0.t,nu=nu0.t)
   design1.1 <- list(N=N.1,d=d,l=l,gamma=gamma.c,s=s,m=m,alpha=alpha1.t,nu=nu1.t)
 
-  # design0 <- list(
-  #                    N = design$N.0
-  #                   ,l = design$l
-  #                   ,gamma = design$gamma.c
-  #                   ,alpha = design$alpha0.t
-  #                   ,nu = design$nu0.t
-  #                   ,s = design$s
-  #                   ,m = design$m
-  #                 )
-
-  # design1 <- list(
-  #                    N = design$N.1
-  #                   ,l = design$l
-  #                   ,gamma = design$gamma.c
-  #                   ,alpha = design$alpha1.t
-  #                   ,nu = design$nu1.t
-  #                   ,s = design$s
-  #                   ,m = design$m
-  #                 )
 
   ds0 <- SimData(design1=design1.0,seed=seed,nsim=nsim)$dataset
   ds0$arm <- 0
@@ -66,7 +47,6 @@ SimData.TwoArm <- function(
   ds1$arm <- 1
   dataset <- rbind(ds0,ds1)
 
-  #return(ds)
   return( list(  dataset = dataset,design2 = design2) )
 
 }

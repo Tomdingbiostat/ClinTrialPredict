@@ -2,34 +2,23 @@
 
 #' Title
 #'
-#' @param N.0
-#' @param N.1
-#' @param d
-#' @param l
-#' @param alpha0.t
-#' @param nu0.t
-#' @param alpha1.t
-#' @param nu1.t
-#' @param gamma.c
-#' @param s
-#' @param m
+#' @inheritParams TrialPred.TwoArm
 #'
 #' @return
 #' @export
 #'
 #' @examples
-CensTimeTwoArm <- function(    N.0,       # Number of subjects plan to be enrolled in group 1
-                               N.1,       # Number of subjects plan to be enrolled in group 2
-                               d,         # Expected number of events observed
-                               l,         # Observation time
-                               alpha0.t,  # shape parameter of a weibull survival distribution for group 1
-                               nu0.t,     # scale parameter of a weibull survival distribution for group 1
-                               alpha1.t,  # shape parameters of a weibull survival distribution for group 2
-                               nu1.t,     # scale parameter of a weibull survival distribution for group 2
-                               gamma.c,   # parameters of a weibull censoring distribution for both groups
-                               s,         # enrollment period time
-                               m,         # maximum follow-up time for a subject
-                               design2
+CensTime.TwoArm <- function(   N.0=NULL,
+                               N.1=NULL,
+                               d=NULL,
+                               l=NULL,
+                               alpha0.t=NULL,
+                               nu0.t=NULL,
+                               alpha1.t=NULL,
+                               nu1.t=NULL,
+                               s=NULL,
+                               m=NULL,
+                               design2=NULL
 )
 {
 

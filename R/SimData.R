@@ -6,7 +6,6 @@
 #' @param nsim number of simulations
 #'
 #' @return
-#' @export
 #'
 #' @examples
 SimData <- function(

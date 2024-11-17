@@ -29,3 +29,5 @@ check()
 
 usethis::use_vignette("ClinTrialPredidct")
 
+
+
