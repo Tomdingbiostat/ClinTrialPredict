@@ -1,6 +1,6 @@
 Package: ClinTrialPredict
 Title: Predicting Clinical Trial
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Yang","Ding",role=c("aut","cre"), email="tomding.biostat@gmail.com")
 Description: Predicting clinical trial.
