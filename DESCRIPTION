@@ -2,8 +2,8 @@ Package: ClinTrialPredict
 Title: Predicting Clinical Trial
 Version: 0.0.0.9000
 Authors@R: 
-    person("Yang", "Ding", , "tomding.biostat@gmail.com")
-Description: Predicting clinical trial
+    person("Yang","Ding",role=c("aut","cre"), email="tomding.biostat@gmail.com")
+Description: Predicting clinical trial.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
