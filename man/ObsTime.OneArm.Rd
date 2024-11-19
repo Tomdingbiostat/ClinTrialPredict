@@ -4,7 +4,15 @@
 \alias{ObsTime.OneArm}
 \title{Calculate the observation time for a one-arm clinical trial}
 \usage{
-ObsTime.OneArm(N, d, s, m, alpha, nu, gamma)
+ObsTime.OneArm(
+  N = NULL,
+  d = NULL,
+  s = NULL,
+  m = NULL,
+  alpha = NULL,
+  nu = NULL,
+  gamma = NULL
+)
 }
 \arguments{
 \item{N}{Number of subjects plan to enrolled}

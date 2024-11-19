@@ -4,7 +4,15 @@
 \alias{CensRate.OneArm}
 \title{Calculate the censoring rate for a one-arm design}
 \usage{
-CensRate.OneArm(N, d, s, m, l, alpha, nu)
+CensRate.OneArm(
+  N = NULL,
+  d = NULL,
+  s = NULL,
+  m = NULL,
+  l = NULL,
+  alpha = NULL,
+  nu = NULL
+)
 }
 \arguments{
 \item{N}{Number of subjects plan to enrolled}
