@@ -2,7 +2,7 @@
 % Please edit documentation in R/SimData.TwoArm.R
 \name{SimData.TwoArm}
 \alias{SimData.TwoArm}
-\title{Title}
+\title{Simulating survival dataset for a two-arm design}
 \usage{
 SimData.TwoArm(
   N.0 = NULL,
@@ -24,12 +24,47 @@ SimData.TwoArm(
 )
 }
 \arguments{
+\item{N.0}{number of subjects plan to be enrolled in control arm}
+
+\item{N.1}{number of subjects plan to be enrolled in experimental arm}
+
+\item{ratio}{randomization ratio between two arms: \code{N.1} / \code{N.0}}
+
+\item{d}{expected number of events observed at time \code{l}}
+
+\item{l}{observation time}
+
+\item{gamma.c}{parameter of the exponential distribution of censoring time}
+
+\item{s}{enrollment time}
+
+\item{m}{maximum follow-up time for a subject}
+
+\item{alpha0.t}{shape parameter of weibull survival distribution for control arm}
+
+\item{nu0.t}{scale parameter of weibull survival distribution for control arm}
+
+\item{HR}{hazard ratio of experimental group over control group}
+
+\item{alpha1.t}{shape parameters of weibull survival distribution for experimental arm}
+
+\item{nu1.t}{scale parameter of a weibull survival distribution for control arm}
+
 \item{design2}{a list containing all the above parameters for two-arm design}
 
 \item{seed}{random seed}
 
 \item{nsim}{number of simulations}
 }
+\value{
+This function will return the simulated datasets and the according design settings
+}
 \description{
-Title
+Simulating survival dataset for a two-arm design
+}
+\examples{
+design2 <- NumEventsSub.TwoArm(N.0=100,N.1=100,l=6,gamma.c=1
+                                         ,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+SimData.TwoArm(design2=design2,seed=1234,nsim=100)
+
 }

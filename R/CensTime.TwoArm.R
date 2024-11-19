@@ -4,10 +4,11 @@
 #'
 #' @inheritParams TrialPred.TwoArm
 #'
-#' @return
+#' @inherit TrialPred.TwoArm return
 #' @export
 #'
-#' @examples
+#' @examples #calculate the censoring parameter
+#' CensTime.TwoArm(N.0=100,N.1=100,d=10,l=3,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 CensTime.TwoArm <- function(   N.0=NULL,
                                N.1=NULL,
                                d=NULL,
@@ -21,16 +22,12 @@ CensTime.TwoArm <- function(   N.0=NULL,
                                design2=NULL
 )
 {
-
-
-
   if(!is.null(design2)){
     for (name in names(design2)) { assign(name, design2[[name]]) }
   }
 
   # Scenario 1: l<s, l<m
   if(l<=s & l<=m){
-    #d.0 <- N.0 * integral2(f2.0.0, 0, l, 0, function(x) l-x)$Q + N.1 * integral2(f2.1.0, 0, l, 0, function(x) l-x)$Q
     d.0 <- N.0 * integral.s1(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=0.001) + N.1 * integral.s1(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=0.001)
     if(d> d.0){
       stop("Error: can not acheieve the expected number of events")
@@ -40,15 +37,13 @@ CensTime.TwoArm <- function(   N.0=NULL,
         int <- N.0 * integral.s1(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=gamma) + N.1 * integral.s1(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma)
         abs(int - d)
       }
-      gamma <- optimize(of,interval=c(0,log(0.01)/(-min(m,l))))
+      gamma <- stats::optimize(of,interval=c(0,log(0.01)/(-min(m,l))))
     }
   }
 
   # Scenario 2:
   else if(l<=s & l>m){
-    #d.0 <- N.0 * ( integral2(f2.0.0,0,l-m,0,m)$Q + integral2(f2.0.0,l-m,l,0,function(x) l-x)$Q )+ N.1 * ( integral2(f2.1.0,0,l-m,0,m)$Q + integral2(f2.1.0,l-m,l,0,function(x) l-x)$Q )
     d.0 <- N.0*integral.s2(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=0.001) + N.1*integral.s2(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=0.001)
-    #print(d.0)
     if(d>d.0){
       stop("Error: can not acheieve the expected number of events")
     } else{
@@ -57,15 +52,13 @@ CensTime.TwoArm <- function(   N.0=NULL,
         int <- N.0 * integral.s2(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=gamma) + N.1*integral.s2(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma)
         abs(int - d)
       }
-      gamma <- optimize(of,interval=c(0,10*nu1.t))
+      gamma <- stats::optimize(of,interval=c(0,10*nu1.t))
     }
   }
 
   # Scenario 3:
   else if(l>s & l<=m){
-    #print("s3")
     d.0 <- N.0*integral.s3(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=0.001) + N.1*integral.s3(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=0.001)
-    #print(d.0)
     if(d>d.0){
       stop("Error: can not acheieve the expected number of events")
     } else{
@@ -74,13 +67,12 @@ CensTime.TwoArm <- function(   N.0=NULL,
         int <- N.0 * integral.s3(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=gamma) + N.1*integral.s3(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma)
         abs(int - d)
       }
-      gamma <- optimize(of,interval=c(0,10*nu1.t))
+      gamma <- stats::optimize(of,interval=c(0,10*nu1.t))
     }
   }
 
   # Scenario 4:
   else if(l>s & l>m & l <s+m){
-    #d.0 <- N.0* ( integral2(f2.0.0,0,l-m ,0 ,m)$Q + integral2(f2.0.0,l-m ,s ,0 ,function(x) l-x)$Q )+ N.1* ( integral2(f2.1.0,0,l-m ,0 ,m)$Q + integral2(f2.1.0,l-m ,s ,0 ,function(x) l-x)$Q )
     d.0 <- N.0*integral.s4(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=0.001) + N.1*integral.s4(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=0.001)
     if(d>d.0){
       stop("Error: can not acheieve the expected number of events")
@@ -90,7 +82,7 @@ CensTime.TwoArm <- function(   N.0=NULL,
         int <- N.0 * integral.s4(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=gamma) + N.1*integral.s4(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma)
         abs(int - d)
       }
-      gamma <- optimize(of,interval=c(0,10*nu1.t))
+      gamma <- stats::optimize(of,interval=c(0,10*nu1.t))
     }
   }
 
@@ -101,21 +93,11 @@ CensTime.TwoArm <- function(   N.0=NULL,
     if(d>d.0){
       stop("Error: can not acheieve the expected number of events")
     } else{
-      # f2.0.1 <- function(a,t){
-      #   1/s * dweibull(t,shape=alpha0.t,scale = nu0.t) * (1-pexp(t,rate=gamma))
-      # }
-      # f2.1.1 <- function(a,t){
-      #   1/s * dweibull(t,shape=alpha1.t,scale = nu1.t) * (1-pexp(t,rate=gamma))
-      # }
-      # of <- function(gamma){
-      #   int <- N.0 * integral2(f2.0.1,0,s,0,m)$Q + N.1 * integral2(f2.1.1,0,s,0,m)$Q
-      #   abs(int-d)
-      # }
       of <- function(gamma){
         int <- N.0 * integral.s5(s=s,m=m,l=l,alpha=alpha0.t,nu=nu0.t,gamma=gamma) + N.1*integral.s5(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma)
         abs(int - d)
       }
-      gamma <- optimize(of,interval=c(0,10*nu1.t))
+      gamma <- stats::optimize(of,interval=c(0,10*nu1.t))
     }
   }
 

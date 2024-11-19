@@ -1,17 +1,19 @@
 
-#' Title
+#' Calculate the observation time for a two-arm clinical trial
 #'
 #' @inheritParams TrialPred.TwoArm
-#'
-#' @return
+#' @inherit TrialPred.TwoArm return
 #' @export
 #'
-#' @examples
-ObsTime.TwoArm <- function(    N.0,
-                               N.1,
-                               d,
-                               gamma.c,
-                               alpha0.t,
+#' @examples # calculate the observation time
+#' ObsTime.TwoArm(N.0=100,N.1=100,d=10,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+#'
+ObsTime.TwoArm <- function(    N.0=NULL,
+                               N.1=NULL,
+                               ratio=NULL,
+                               d=NULL,
+                               gamma.c=NULL,
+                               alpha0.t=NULL,
                                nu0.t,
                                alpha1.t,
                                nu1.t,
@@ -44,7 +46,7 @@ ObsTime.TwoArm <- function(    N.0,
                  N.1 * integral.s1(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)
           abs(int - d)
         }
-        l <- optimize(of,interval=c(0,s))
+        l <- stats::optimize(of,interval=c(0,s))
         P0.delta.0 <- integral.s1(s=s,m=m,l=l$minimum,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)
         P1.delta.0 <- integral.s1(s=s,m=m,l=l$minimum,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)
       }
@@ -56,7 +58,7 @@ ObsTime.TwoArm <- function(    N.0,
                  N.1 * integral.s2(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)
           abs(int - d)
         }
-        l <- optimize(of,interval=c(0,s))
+        l <- stats::optimize(of,interval=c(0,s))
         P0.delta.0 <- integral.s1(s=s,m=m,l=l$minimum,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)
         P1.delta.0 <- integral.s1(s=s,m=m,l=l$minimum,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)
       }
@@ -68,7 +70,7 @@ ObsTime.TwoArm <- function(    N.0,
                  N.1 * integral.s3(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)
           abs(int - d)
         }
-        l <- optimize(of,interval=c(0,m))
+        l <- stats::optimize(of,interval=c(0,m))
         P0.delta.0 <- integral.s1(s=s,m=m,l=l$minimum,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)
         P1.delta.0 <- integral.s1(s=s,m=m,l=l$minimum,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)
       }
@@ -80,7 +82,7 @@ ObsTime.TwoArm <- function(    N.0,
                  N.1 * integral.s4(s=s,m=m,l=l,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)
           abs(int - d)
         }
-        l <- optimize(of,interval=c(0,s+m))
+        l <- stats::optimize(of,interval=c(0,s+m))
         P0.delta.0 <- integral.s1(s=s,m=m,l=l$minimum,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)
         P1.delta.0 <- integral.s1(s=s,m=m,l=l$minimum,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)
       }

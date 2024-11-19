@@ -41,6 +41,13 @@ CensTime.TwoArm(
 
 \item{design2}{a list containing all the above parameters for two-arm design}
 }
+\value{
+This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters \code{d}, \code{N.0}(or \code{N.1}), \code{l} or \code{gamma.c} is missing, it can be calculated based on the other parameters.
+}
 \description{
 Title
+}
+\examples{
+#calculate the censoring parameter
+CensTime.TwoArm(N.0=100,N.1=100,d=10,l=3,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 }

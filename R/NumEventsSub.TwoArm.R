@@ -7,22 +7,32 @@
 #'
 #' @inheritParams TrialPred.TwoArm
 #'
-#' @return
+#' @inherit TrialPred.TwoArm return
 #' @export
 #'
-#' @examples
+#' @examples # calculate the expected number of events
+#' NumEventsSub.TwoArm(N.0=100,N.1=100,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+#'
+#' # calculate the expeTrcted number of events using a list as input
+#' design2 <- list(N.0=100,N.1=100,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+#' NumEventsSub.TwoArm(design2=design2)
+#'
+#' # calculate the number of subject enrolled
+#' NumEventsSub.TwoArm(ratio=1,d=24,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+#'
 NumEventsSub.TwoArm <- function(
                                N.0=NULL,
                                N.1=NULL,
                                ratio=NULL,
+                               d=NULL,
                                l=NULL,
                                gamma.c=NULL,
                                alpha0.t=NULL,
                                nu0.t=NULL,
                                alpha1.t=NULL,
                                nu1.t=NULL,
-                               s,
-                               m,
+                               s=NULL,
+                               m=NULL,
                                design2=NULL
                               )
   {

@@ -1,5 +1,15 @@
 
-NumEventsSub <- function( N=NULL
+#' Calculate the expected number of events or number of subjects enrolled in a two-arm clinical trial
+#'
+#' @inheritParams TrialPred.OneArm
+#'
+#' @return
+#' @export
+#'
+#' @examples # Calculate the expected number of events in a one-arm clinical trial
+#' NumEventsSub.OneArm(N=100,d=NULL,l=3,gamma=0.1,s=12,m=6,alpha=1,nu=20)
+#'
+NumEventsSub.OneArm <- function( N=NULL
                          ,d=NULL
                          ,l=NULL
                          ,gamma=NULL
@@ -71,17 +81,6 @@ NumEventsSub <- function( N=NULL
 
 }
 
-
-# (s1 <- NumEventsSub(N=100,s=5,m=3,l=2,  alpha=1,nu=5,gamma=1)) # l<s, l<m
-#
-# design1 <- list(N=100,s=5,m=3,l=2,  alpha=1,nu=5,gamma=1)
-# NumEventsSub(design1=design1)
-#
-#
-# (s2 <- NumEventsSub(N=100,s=5,m=3,l=4,  alpha=1,nu=5,gamma=1)) # l<s, l>m
-# (s3 <- NumEventsSub(N=100,s=5,m=7,l=6,  alpha=1,nu=5,gamma=1)) # l>s, l<=m
-# (s4 <- NumEventsSub(N=100,s=5,m=7,l=8,  alpha=1,nu=5,gamma=1)) # l>s, l>m, l < m + s
-# (s5 <- NumEventsSub(N=100,s=5,m=7,l=12, alpha=1,nu=5,gamma=1)) # l>s, l>m, l > m + s
 
 
 

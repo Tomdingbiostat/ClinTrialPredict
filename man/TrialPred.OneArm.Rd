@@ -2,7 +2,7 @@
 % Please edit documentation in R/TrialPred.OneArm.R
 \name{TrialPred.OneArm}
 \alias{TrialPred.OneArm}
-\title{Title}
+\title{Function for predicting one-arm clinical trial}
 \usage{
 TrialPred.OneArm(
   N = NULL,
@@ -17,30 +17,44 @@ TrialPred.OneArm(
 )
 }
 \arguments{
-\item{N}{example}
+\item{N}{Number of subjects plan to enrolled}
 
-\item{d}{example}
+\item{d}{expected number of events observed at time \code{l}}
 
-\item{l}{example}
+\item{l}{observation time}
 
-\item{gamma}{example}
+\item{gamma}{parameter of the exponential distribution of censoring time}
 
-\item{s}{example}
+\item{s}{enrollment period}
 
-\item{m}{example}
+\item{m}{maximum follow-up for a single subject}
 
-\item{alpha}{example}
+\item{alpha}{shape parameter of weibull survival distribution}
 
-\item{nu}{example}
+\item{nu}{scale parameter of weibull survival distribution}
 
-\item{design1}{example}
+\item{design1}{a list containing all the above parameters for one-arm design}
 }
 \value{
-example
+This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters \code{d}, \code{N}, \code{l} or \code{gamma} is missing, it can be calculated based on the other parameters.
 }
 \description{
-Title
+Function for predicting one-arm clinical trial
 }
 \examples{
-ex
+# Calculate the expected number of events in a one-arm clinical trial
+TrialPred.OneArm(N=100,d=NULL,l=3,gamma=0.1,s=12,m=6,alpha=1,nu=20)
+
+#Calculate the expected number of events using a list as input
+design1 <- list(N=100,d=NULL,l=3,gamma=0.1,s=12,m=6,alpha=1,nu=20)
+TrialPred.OneArm(design1=design1)
+
+#Calculate the number of subjects enrolled
+TrialPred.OneArm(N=NULL,d=8,l=15,gamma=0.1,s=12,m=6,alpha=1,nu=20)
+
+#Calculate the observation time
+TrialPred.OneArm(N=100,d=10,l=NULL,gamma=0.1,s=12,m=6,alpha=1,nu=20)
+
+#Calculate the censoring parameter gamma
+TrialPred.OneArm(N=100,d=10,l=10,gamma=NULL,s=12,m=6,alpha=1,nu=20)
 }

@@ -58,18 +58,23 @@ predicting two-arm clinical trial
 }
 \examples{
 # calculate the expected number of events
-TrialPred.TwoArm(N.0=100,N.1=100,d=NULL,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+TrialPred.TwoArm(N.0=100,N.1=100,d=NULL,l=6,gamma.c=1
+                ,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 
 # calculate the expected number of events using a list as input
-design2 <- list(N.0=100,N.1=100,d=NULL,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+design2 <- list(N.0=100,N.1=100,d=NULL,l=6,gamma.c=1
+                ,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 TrialPred.TwoArm(design2=design2)
 
 # calculate the number of subject enrolled
-TrialPred.TwoArm(N.0=NULL,N.1=NULL,ratio=1,d=24,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+TrialPred.TwoArm(N.0=NULL,N.1=NULL,ratio=1,d=24,l=6,gamma.c=1
+                ,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 
 # calculate the observation time
-TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=NULL,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=NULL,gamma.c=1
+                 ,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 
 # calculate the censoring parameter
-TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=3,gamma.c=NULL,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+TrialPred.TwoArm(N.0=100,N.1=100,d=10,l=3,gamma.c=NULL
+                ,alpha0.t=1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 }

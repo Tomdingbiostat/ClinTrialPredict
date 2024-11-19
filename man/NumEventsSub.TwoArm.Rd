@@ -8,14 +8,15 @@ NumEventsSub.TwoArm(
   N.0 = NULL,
   N.1 = NULL,
   ratio = NULL,
+  d = NULL,
   l = NULL,
   gamma.c = NULL,
   alpha0.t = NULL,
   nu0.t = NULL,
   alpha1.t = NULL,
   nu1.t = NULL,
-  s,
-  m,
+  s = NULL,
+  m = NULL,
   design2 = NULL
 )
 }
@@ -25,6 +26,8 @@ NumEventsSub.TwoArm(
 \item{N.1}{number of subjects plan to be enrolled in experimental arm}
 
 \item{ratio}{randomization ratio between two arms: \code{N.1} / \code{N.0}}
+
+\item{d}{expected number of events observed at time \code{l}}
 
 \item{l}{observation time}
 
@@ -44,6 +47,21 @@ NumEventsSub.TwoArm(
 
 \item{design2}{a list containing all the above parameters for two-arm design}
 }
+\value{
+This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters \code{d}, \code{N.0}(or \code{N.1}), \code{l} or \code{gamma.c} is missing, it can be calculated based on the other parameters.
+}
 \description{
 Calculate the expected number of events or number of subjects enrolled in a two-arm clinical trial
+}
+\examples{
+# calculate the expected number of events
+NumEventsSub.TwoArm(N.0=100,N.1=100,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+
+# calculate the expeTrcted number of events using a list as input
+design2 <- list(N.0=100,N.1=100,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+NumEventsSub.TwoArm(design2=design2)
+
+# calculate the number of subject enrolled
+NumEventsSub.TwoArm(ratio=1,d=24,l=6,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
+
 }
