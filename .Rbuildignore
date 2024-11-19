@@ -4,3 +4,4 @@
 ^README\.Rmd$
 ^\.Rhistory$
 ^\.RData$
+^cran-comments\.md$
