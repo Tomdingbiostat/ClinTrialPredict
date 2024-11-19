@@ -7,7 +7,7 @@
 #'
 #' @inheritParams TrialPred.TwoArm
 #'
-#' @inherit TrialPred.TwoArm return
+#' @return This function returns a list containing all design parameters as the same with input parameters of this function.
 #' @export
 #'
 #' @examples # calculate the expected number of events
@@ -45,8 +45,8 @@ NumEventsSub.TwoArm <- function(
   design1.1 <- list(N=N.1,d=d,l=l,gamma=gamma.c,s=s,m=m,alpha=alpha1.t,nu=nu1.t)
 
   if(!is.null(N.0) & !is.null(N.1) & is.null(d)){
-      g0 <- NumEventsSub(design1 = design1.0)
-      g1 <- NumEventsSub(design1 = design1.1)
+      g0 <- NumEventsSub.OneArm(design1 = design1.0)
+      g1 <- NumEventsSub.OneArm(design1 = design1.1)
       result <- list(
                        N.0 = N.0
                       ,N.1 = N.1
@@ -66,8 +66,8 @@ NumEventsSub.TwoArm <- function(
       )
   }
   else if(is.null(N.0) & is.null(N.1) & !is.null(d)){
-      g0 <- NumEventsSub(design1 = design1.0)
-      g1 <- NumEventsSub(design1 = design1.1)
+      g0 <- NumEventsSub.OneArm(design1 = design1.0)
+      g1 <- NumEventsSub.OneArm(design1 = design1.1)
 
       P0.delta.0 <-  g0$P.delta.0
       P1.delta.0 <-  g1$P.delta.0

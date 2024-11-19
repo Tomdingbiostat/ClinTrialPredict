@@ -45,10 +45,10 @@ ObsTime.TwoArm(
 \item{design2}{a list containing all the above parameters for two-arm design}
 }
 \value{
-This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters \code{d}, \code{N.0}(or \code{N.1}), \code{l} or \code{gamma.c} is missing, it can be calculated based on the other parameters.
+This function returns a list containing all design parameters, including the calculated observation time \code{l}
 }
 \description{
-Calculate the observation time for a two-arm clinical trial
+predicting two-arm clinical trial
 }
 \examples{
 # calculate the observation time

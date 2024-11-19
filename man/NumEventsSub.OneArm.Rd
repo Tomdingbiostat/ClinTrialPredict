@@ -2,7 +2,7 @@
 % Please edit documentation in R/NumEventsSub.OneArm.R
 \name{NumEventsSub.OneArm}
 \alias{NumEventsSub.OneArm}
-\title{Calculate the expected number of events or number of subjects enrolled in a two-arm clinical trial}
+\title{Calculate the expected number of events or number of subjects enrolled in a one-arm clinical trial}
 \usage{
 NumEventsSub.OneArm(
   N = NULL,
@@ -35,8 +35,11 @@ NumEventsSub.OneArm(
 
 \item{design1}{a list containing all the above parameters for one-arm design}
 }
+\value{
+This function returns a list containing all design parameters as the same with input parameters of this function.
+}
 \description{
-Calculate the expected number of events or number of subjects enrolled in a two-arm clinical trial
+Calculate the expected number of events or number of subjects enrolled in a one-arm clinical trial
 }
 \examples{
 # Calculate the expected number of events in a one-arm clinical trial

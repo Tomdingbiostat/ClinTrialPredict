@@ -41,6 +41,9 @@ SimData.OneArm(
 
 \item{nsim}{number of simulations}
 }
+\value{
+This function will return the simulated datasets and the according design settings
+}
 \description{
 Simulating survival dataset for a one-arm design
 }
@@ -48,6 +51,6 @@ Simulating survival dataset for a one-arm design
 design1 <- TrialPred.OneArm(N=100,d=NULL,l=3,gamma=0.1
                                      ,s=12,m=6,alpha=1,nu=20)
 # Simulate 100 datasets under design1
-SimData.OneArm(design1=design1)
+SimData.OneArm(design1=design1,seed=1234,nsim=100)
 
 }

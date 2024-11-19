@@ -1,9 +1,9 @@
 
-#' Calculate the expected number of events or number of subjects enrolled in a two-arm clinical trial
+#' Calculate the expected number of events or number of subjects enrolled in a one-arm clinical trial
 #'
 #' @inheritParams TrialPred.OneArm
 #'
-#' @return
+#' @return This function returns a list containing all design parameters as the same with input parameters of this function.
 #' @export
 #'
 #' @examples # Calculate the expected number of events in a one-arm clinical trial

@@ -2,7 +2,7 @@
 % Please edit documentation in R/CensTime.TwoArm.R
 \name{CensTime.TwoArm}
 \alias{CensTime.TwoArm}
-\title{Title}
+\title{Calculate the censoring rate}
 \usage{
 CensTime.TwoArm(
   N.0 = NULL,
@@ -42,10 +42,10 @@ CensTime.TwoArm(
 \item{design2}{a list containing all the above parameters for two-arm design}
 }
 \value{
-This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters \code{d}, \code{N.0}(or \code{N.1}), \code{l} or \code{gamma.c} is missing, it can be calculated based on the other parameters.
+This function returns a list containing all design parameters, including the calculated censoring rate \code{gamma.c}
 }
 \description{
-Title
+Calculate the censoring rate
 }
 \examples{
 #calculate the censoring parameter

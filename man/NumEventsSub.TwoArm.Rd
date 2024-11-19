@@ -48,7 +48,7 @@ NumEventsSub.TwoArm(
 \item{design2}{a list containing all the above parameters for two-arm design}
 }
 \value{
-This function returns a list containing all design parameters as the same with input parameters of this function. If any one of the parameters \code{d}, \code{N.0}(or \code{N.1}), \code{l} or \code{gamma.c} is missing, it can be calculated based on the other parameters.
+This function returns a list containing all design parameters as the same with input parameters of this function.
 }
 \description{
 Calculate the expected number of events or number of subjects enrolled in a two-arm clinical trial

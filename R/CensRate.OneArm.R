@@ -1,5 +1,13 @@
 
 
+#' Calculate the censoring rate for a one-arm design
+#'
+#' @inheritParams TrialPred.OneArm
+#'
+#' @return This function returns a list containing all design parameters, including the calculated censoring rate `gamma`.
+#' @export
+#'
+#' @examples CensRate.OneArm(N=100,d=10,l=10,s=12,m=6,alpha=1,nu=20)
 CensRate.OneArm <- function(N,d,s,m,l,alpha,nu){
 
   P.delta.0 <- d/N

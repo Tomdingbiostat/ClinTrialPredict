@@ -21,6 +21,9 @@ ObsTime.OneArm(N, d, s, m, alpha, nu, gamma)
 
 \item{gamma}{parameter of the exponential distribution of censoring time}
 }
+\value{
+This function returns a list containing all design parameters, including the calculated observation time \code{l}.
+}
 \description{
 Calculate the observation time for a one-arm clinical trial
 }

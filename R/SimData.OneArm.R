@@ -12,7 +12,7 @@
 #' @examples design1 <- TrialPred.OneArm(N=100,d=NULL,l=3,gamma=0.1
 #'                                      ,s=12,m=6,alpha=1,nu=20)
 #' # Simulate 100 datasets under design1
-#' SimData.OneArm(design1=design1)
+#' SimData.OneArm(design1=design1,seed=1234,nsim=100)
 #'
 SimData.OneArm <- function(
                      N=NULL

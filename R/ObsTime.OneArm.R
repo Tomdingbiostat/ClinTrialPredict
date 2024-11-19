@@ -4,7 +4,7 @@
 #'
 #' @inheritParams TrialPred.OneArm
 #'
-#' @return
+#' @return This function returns a list containing all design parameters, including the calculated observation time `l`.
 #' @export
 #'
 #' @examples ObsTime.OneArm(N=100,d=10,gamma=0.1,s=12,m=6,alpha=1,nu=20)
@@ -12,11 +12,11 @@ ObsTime.OneArm <- function(N,d,s,m,alpha,nu,gamma){
 
   P.delta.0 <- d/N
 
-  P.delta.0.s <- NumEventsSub(N=N,s=s,m=m,l=s,alpha=alpha,nu=nu,gamma=gamma)$P.delta.0
+  P.delta.0.s <- NumEventsSub.OneArm(N=N,s=s,m=m,l=s,alpha=alpha,nu=nu,gamma=gamma)$P.delta.0
 
-  P.delta.0.m <- NumEventsSub(N=N,s=s,m=m,l=m,alpha=alpha,nu=nu,gamma=gamma)$P.delta.0
+  P.delta.0.m <- NumEventsSub.OneArm(N=N,s=s,m=m,l=m,alpha=alpha,nu=nu,gamma=gamma)$P.delta.0
 
-  P.delta.0.sm <- NumEventsSub(N=N,s=s,m=m,l=m+s,alpha=alpha,nu=nu,gamma=gamma)$P.delta.0
+  P.delta.0.sm <- NumEventsSub.OneArm(N=N,s=s,m=m,l=m+s,alpha=alpha,nu=nu,gamma=gamma)$P.delta.0
 
 
   # Scenario 1

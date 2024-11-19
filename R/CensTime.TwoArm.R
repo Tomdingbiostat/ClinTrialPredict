@@ -1,10 +1,10 @@
 
 
-#' Title
+#' Calculate the censoring rate
 #'
 #' @inheritParams TrialPred.TwoArm
 #'
-#' @inherit TrialPred.TwoArm return
+#' @return This function returns a list containing all design parameters, including the calculated censoring rate `gamma.c`
 #' @export
 #'
 #' @examples #calculate the censoring parameter

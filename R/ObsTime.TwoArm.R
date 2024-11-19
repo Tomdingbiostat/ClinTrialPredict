@@ -2,9 +2,9 @@
 #' Calculate the observation time for a two-arm clinical trial
 #'
 #' @inheritParams TrialPred.TwoArm
-#' @inherit TrialPred.TwoArm return
+#' @inherit TrialPred.TwoArm
+#' @return This function returns a list containing all design parameters, including the calculated observation time `l`
 #' @export
-#'
 #' @examples # calculate the observation time
 #' ObsTime.TwoArm(N.0=100,N.1=100,d=10,gamma.c=1,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4)
 #'
@@ -24,18 +24,18 @@ ObsTime.TwoArm <- function(    N.0=NULL,
 
       if(!is.null(design2)){ for (name in names(design2)) { assign(name, design2[[name]]) } }
 
-      P0.delta.0.s <- NumEventsSub(N=N.0,s=s,m=m,l=s,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
-      P1.delta.0.s <- NumEventsSub(N=N.1,s=s,m=m,l=s,alpha=alpha1.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
+      P0.delta.0.s <- NumEventsSub.OneArm(N=N.0,s=s,m=m,l=s,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
+      P1.delta.0.s <- NumEventsSub.OneArm(N=N.1,s=s,m=m,l=s,alpha=alpha1.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
       d.s <- N.0 * P0.delta.0.s + N.1 * P1.delta.0.s
 
 
-      P0.delta.0.m <- NumEventsSub(N=N.0,s=s,m=m,l=m,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
-      P1.delta.0.m <- NumEventsSub(N=N.1,s=s,m=m,l=m,alpha=alpha1.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
+      P0.delta.0.m <- NumEventsSub.OneArm(N=N.0,s=s,m=m,l=m,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
+      P1.delta.0.m <- NumEventsSub.OneArm(N=N.1,s=s,m=m,l=m,alpha=alpha1.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
       d.m <- N.0 * P0.delta.0.m + N.1 * P1.delta.0.m
 
 
-      P0.delta.0.sm <- NumEventsSub(N=N.0,s=s,m=m,l=m+s,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
-      P1.delta.0.sm <- NumEventsSub(N=N.1,s=s,m=m,l=m+s,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)$P.delta.0
+      P0.delta.0.sm <- NumEventsSub.OneArm(N=N.0,s=s,m=m,l=m+s,alpha=alpha0.t,nu=nu0.t,gamma=gamma.c)$P.delta.0
+      P1.delta.0.sm <- NumEventsSub.OneArm(N=N.1,s=s,m=m,l=m+s,alpha=alpha1.t,nu=nu1.t,gamma=gamma.c)$P.delta.0
       d.sm <- N.0 * P0.delta.0.sm + N.1 * P1.delta.0.sm
 
 

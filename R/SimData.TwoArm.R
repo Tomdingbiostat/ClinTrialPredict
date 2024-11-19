@@ -46,9 +46,9 @@ SimData.TwoArm <- function(
   design1.0 <- list(N=N.0,d=d,l=l,gamma=gamma.c,s=s,m=m,alpha=alpha0.t,nu=nu0.t)
   design1.1 <- list(N=N.1,d=d,l=l,gamma=gamma.c,s=s,m=m,alpha=alpha1.t,nu=nu1.t)
 
-  ds0 <- SimData(design1=design1.0,seed=seed,nsim=nsim)$dataset
+  ds0 <- SimData.OneArm(design1=design1.0,seed=seed,nsim=nsim)$dataset
   ds0$arm <- 0
-  ds1 <- SimData(design1=design1.1,seed=seed,nsim=nsim)$dataset
+  ds1 <- SimData.OneArm(design1=design1.1,seed=seed,nsim=nsim)$dataset
   ds1$arm <- 1
   dataset <- rbind(ds0,ds1)
 
