@@ -8,7 +8,14 @@
 #' @export
 #'
 #' @examples ObsTime.OneArm(N=100,d=10,gamma=0.1,s=12,m=6,alpha=1,nu=20)
-ObsTime.OneArm <- function(N,d,s,m,alpha,nu,gamma){
+ObsTime.OneArm <- function( N = NULL
+                           ,d = NULL
+                           ,s = NULL
+                           ,m = NULL
+                           ,alpha = NULL
+                           ,nu = NULL
+                           ,gamma = NULL
+                           ){
 
   P.delta.0 <- d/N
 

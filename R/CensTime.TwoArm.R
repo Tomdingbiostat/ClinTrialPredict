@@ -1,6 +1,6 @@
 
 
-#' Calculate the censoring rate
+#' Calculate the censoring rate for a two-arm clinical trial
 #'
 #' @inheritParams TrialPred.TwoArm
 #'

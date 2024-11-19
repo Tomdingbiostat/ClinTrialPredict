@@ -8,7 +8,14 @@
 #' @export
 #'
 #' @examples CensRate.OneArm(N=100,d=10,l=10,s=12,m=6,alpha=1,nu=20)
-CensRate.OneArm <- function(N,d,s,m,l,alpha,nu){
+CensRate.OneArm <- function( N = NULL
+                            ,d = NULL
+                            ,s = NULL
+                            ,m = NULL
+                            ,l = NULL
+                            ,alpha = NULL
+                            ,nu = NULL
+                            ){
 
   P.delta.0 <- d/N
 
