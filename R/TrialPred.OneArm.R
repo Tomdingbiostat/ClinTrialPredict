@@ -56,7 +56,6 @@ TrialPred.OneArm <- function(
   }
 
   if(is.null(d) & !is.null(N) & !is.null(l) & !is.null(gamma)){
-    print("x")
     return(NumEventsSub.OneArm(N=N,s=s,m=m,l=l,alpha=alpha,nu=nu,gamma=gamma))
   }
 

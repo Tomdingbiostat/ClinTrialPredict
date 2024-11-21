@@ -119,7 +119,5 @@ CensTime.TwoArm <- function(   N.0=NULL,
 }
 
 
-#CensTimeTwoArm(N.0=100,N.1=100,d=23.87,alpha0.t = 1,nu0.t=5,alpha1.t=2,nu1.t=4,s=5,m=4,l=6)
-
 
 
