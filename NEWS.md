@@ -1,3 +1,5 @@
+# ClinTrialPredict 0.0.3
+
 # ClinTrialPredict 0.0.2
 
 * resolve comments from CRAN
