@@ -1,9 +1,9 @@
 Package: ClinTrialPredict
 Title: Predicting and Simulating Clinical Trial with Time-to-Event Endpoint
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: 
     person("Yang","Ding",role=c("aut","cre"), email="tomding.biostat@gmail.com")
-Description: predict the course of clinical trial with a time-to-event endpoint for both two-arm and single-arm design. Each of the four primary study design parameters (the expected number of observed events, the number of subjects enrolled, the observation time, and the censoring parameter) can be derived analytically given the other three parameters. And the simulation datasets can be generated based on the design settings.
+Description: Predict the course of clinical trial with a time-to-event endpoint for both two-arm and single-arm design. Each of the four primary study design parameters (the expected number of observed events, the number of subjects enrolled, the observation time, and the censoring parameter) can be derived analytically given the other three parameters. And the simulation datasets can be generated based on the design settings.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
